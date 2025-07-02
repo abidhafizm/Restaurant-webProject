@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ghairmulki Restaurant</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- AOS Animation CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      background: #b30000;
+      color: white;
+      padding: 1em 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a#menu-link {
+      position: relative;
+    }
+
+    .hero {
+      background-image: url('https://www.albaik.com/assets/hero/home_hero_new_1400-d5bb20bf4a5a8eaa19d22379497bd57b11272c75d0efab0f86dd34248072a596.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1em;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+    }
+
+    .hero a, .hero button {
+      margin-top: 1em;
+      background: gold;
+      color: #b30000;
+      border: none;
+      padding: 0.7em 1.5em;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .hero button:hover {
+      transform: scale(1.05);
+    }
+
+    .section {
+      padding: 2em;
+      text-align: center;
+    }
+
+    .menu-item {
+      margin: 1em;
+      display: inline-block;
+      width: 250px;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+    }
+
+    /* Popup */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-box {
+      background: white;
+      padding: 2em;
+      border-radius: 10px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    .popup-box button {
+      margin-top: 1em;
+      padding: 0.5em 1.5em;
+      background: #b30000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div>Ghairmulki</div>
+    <div>
+      <a href="#home">Home</a>
+      <a id="menu-link" onclick="openPopup()">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home" data-aos="fade-up">
+    <h1>Welcome to Ghairmulki</h1>
+    <p>Delicious food with love & tradition</p>
+    <a href="#menu">Explore Menu</a>
+    <button onclick="openPopup()">🎁 Get Special Offer</button>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="section" id="menu" data-aos="fade-right">
+    <h2>Our Menu</h2>
+    <div class="menu-item" data-aos="zoom-in">
+      <img src="https://www.recipetineats.com/wp-content/uploads/2018/03/Fried-Chicken_3.jpg" alt="Chicken Meal" />
+      <p>🍗 Chicken Meal</p>
+    </div>
+    <div class="menu-item" data-aos="zoom-in">
+      <img src="https://www.simplyrecipes.com/thmb/EtRzrb0s4xvWmSkzOCYz8kXlm9I=/2000x1500/filters:fill(auto,1)/Simply-Recipes-Fish-Fillet-LEAD-6-92e42a5b3f9f4a9eb589878e3777eab2.jpg" alt="Fish Fillet" />
+      <p>🐟 Fish Fillet</p>
+    </div>
+    <div class="menu-item" data-aos="zoom-in">
+      <img src="https://www.cookingclassy.com/wp-content/uploads/2021/08/shrimp-scampi-21.jpg" alt="Shrimp Bucket" />
+      <p>🍤 Shrimp Bucket</p>
+    </div>
+    <div class="menu-item" data-aos="zoom-in">
+      <img src="https://www.spendwithpennies.com/wp-content/uploads/2021/05/SpendWithPennies-Homemade-Fries-22.jpg" alt="Fries" />
+      <p>🍟 Crispy Fries</p>
+    </div>
+    <div class="menu-item" data-aos="zoom-in">
+      <img src="https://www.seriouseats.com/thmb/wddoe5B8trVaTbfEXNBK8MEWZzM=/1500x1125/filters:no_upscale():max_bytes(150000):strip_icc()/20210623-Cheeseburger-Jillian-Atkinson-1-0b0d6b3679284b259bcb88e5dbe019a0.jpg" alt="Cheeseburger" />
+      <p>🍔 Cheeseburger</p>
+    </div>
+    <div class="menu-item" data-aos="zoom-in">
+      <img src="https://www.acouplecooks.com/wp-content/uploads/2020/11/Soft-Drinks-001.jpg" alt="Drinks" />
+      <p>🥤 Cold Drinks</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about" data-aos="fade-left">
+    <h2>About Us</h2>
+    <p>We started in 1974 with a mission to bring quality meals with unique flavors to every table. Your satisfaction is our success.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact" data-aos="flip-up">
+    <h2>Contact Us</h2>
+    <p>📞 800-123-4567</p>
+    <p>📧 info@ghairmulki.com</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Ghairmulki Restaurant</p>
+  </footer>
+
+  <!-- Popup -->
+  <div id="popup">
+    <div class="popup-box">
+      <h2>🎉 Special Offer!</h2>
+      <p>Get 20% off your first order. Order now and enjoy!</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <!-- AOS and JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>
